@@ -162,7 +162,6 @@ fetch(requests.fetchComedyMovies)
     row.appendChild(row_posters);
 
     data.results.forEach((movie) => {
-      console.log(movie);
       const poster = document.createElement("img");
       poster.className = "row__poster";
       var s2 = movie.id;
@@ -191,7 +190,6 @@ fetch(requests.fetchHorrorMovies)
     row.appendChild(row_posters);
 
     data.results.forEach((movie) => {
-      console.log(movie);
       const poster = document.createElement("img");
       poster.className = "row__poster";
       var s2 = movie.id;
@@ -220,7 +218,6 @@ fetch(requests.fetchRomanceMovies)
     row.appendChild(row_posters);
 
     data.results.forEach((movie) => {
-      console.log(movie);
       const poster = document.createElement("img");
       poster.className = "row__poster";
       var s2 = movie.id;
@@ -249,7 +246,6 @@ fetch(requests.fetchDocumentaries)
     row.appendChild(row_posters);
 
     data.results.forEach((movie) => {
-      console.log(movie);
       const poster = document.createElement("img");
       poster.className = "row__poster";
       var s2 = movie.id;
