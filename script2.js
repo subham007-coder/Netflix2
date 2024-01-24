@@ -8,11 +8,9 @@ const base_url = "https://api.themoviedb.org/3";
 const banner_url = "https://image.tmdb.org/t/p/original";
 const img_url = "https://image.tmdb.org/t/p/w300"; // You can change "w185" to your preferred size
 
-
 // requests for movies data
 
 const requests = {
-
   fetchTrending: `${base_url}/trending/all/week?${api}&language=en-US`,
   fetchNetflixOrignals: `${base_url}/discover/tv?${api}&with_networks=213`,
   fetchActionMovies: `${base_url}/discover/movie?${api}&with_genres=28`,
@@ -31,22 +29,15 @@ function truncate(str, n) {
 fetch(requests.fetchNetflixOrignals)
   .then((res) => res.json())
 
-
-
   .then((data) => {
-    
     // every refresh the movie will be change
-
 
     const setMovie =
       data.results[Math.floor(Math.random() * data.results.length - 1)];
 
-   
-
     var banner = document.getElementById("banner");
     var banner_title = document.getElementById("banner__title");
     var banner__desc = document.getElementById("banner__description");
-
 
     banner.style.backgroundImage =
       "url(" + banner_url + setMovie.backdrop_path + ")";
@@ -58,7 +49,6 @@ fetch(requests.fetchNetflixOrignals)
 fetch(requests.fetchNetflixOrignals)
   .then((res) => res.json())
 
-
   .then((data) => {
     const headrow = document.getElementById("headrow");
     const row = document.createElement("div");
@@ -68,13 +58,10 @@ fetch(requests.fetchNetflixOrignals)
 
     headrow.appendChild(row);
 
-
     const title = document.createElement("h2");
-
 
     title.className = "row__title";
     title.innerText = "NETFLIX ORIGINALS";
-
 
     row.appendChild(title);
 
@@ -82,10 +69,7 @@ fetch(requests.fetchNetflixOrignals)
     row_posters.className = "row__posters";
     row.appendChild(row_posters);
 
-
-
     data.results.forEach((movie) => {
-
       const poster = document.createElement("img");
       poster.className = "row__posterLarge";
 
@@ -103,7 +87,6 @@ fetch(requests.fetchNetflixOrignals)
 fetch(requests.fetchTrending)
   .then((res) => res.json())
 
-
   .then((data) => {
     const headrow = document.getElementById("headrow");
     const row = document.createElement("div");
@@ -111,20 +94,16 @@ fetch(requests.fetchTrending)
 
     headrow.appendChild(row);
 
-
     const title = document.createElement("h2");
     title.className = "row__title";
     title.innerText = "Top Rated";
     row.appendChild(title);
 
-
     const row_posters = document.createElement("div");
     row_posters.className = "row__posters";
     row.appendChild(row_posters);
-    
-    
+
     data.results.forEach((movie) => {
-      
       const poster = document.createElement("img");
       poster.className = "row__posterLarge";
       var s2 = movie.id;
@@ -139,27 +118,22 @@ fetch(requests.fetchTrending)
 fetch(requests.fetchActionMovies)
   .then((res) => res.json())
 
-
   .then((data) => {
     const headrow = document.getElementById("headrow");
     const row = document.createElement("div");
     row.className = "row";
     headrow.appendChild(row);
 
-
     const title = document.createElement("h2");
     title.className = "row__title";
     title.innerText = "Action Movies";
     row.appendChild(title);
 
-
     const row_posters = document.createElement("div");
     row_posters.className = "row__posters";
     row.appendChild(row_posters);
 
-    
     data.results.forEach((movie) => {
-    
       const poster = document.createElement("img");
       poster.className = "row__poster";
       var s2 = movie.id;
@@ -178,17 +152,14 @@ fetch(requests.fetchComedyMovies)
     row.className = "row";
     headrow.appendChild(row);
 
-
     const title = document.createElement("h2");
     title.className = "row__title";
     title.innerText = "Comedy Movies";
     row.appendChild(title);
 
-
     const row_posters = document.createElement("div");
     row_posters.className = "row__posters";
     row.appendChild(row_posters);
-
 
     data.results.forEach((movie) => {
       console.log(movie);
@@ -270,14 +241,13 @@ fetch(requests.fetchDocumentaries)
     headrow.appendChild(row);
     const title = document.createElement("h2");
     title.className = "row__title";
-    title.innerText = "Documentaries"
-    ;
+    title.innerText = "Documentaries";
     row.appendChild(title);
 
     const row_posters = document.createElement("div");
     row_posters.className = "row__posters";
     row.appendChild(row_posters);
-    
+
     data.results.forEach((movie) => {
       console.log(movie);
       const poster = document.createElement("img");
